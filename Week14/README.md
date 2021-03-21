@@ -98,4 +98,18 @@ In the first experiment we will setup a baseline. In the subsequent steps we wil
   * Loss Function : Cross Entropy
   * Optimizer : Adam
   * Learning Rate: 0.0001
+* Total Number of Parameters : 7 million
+* Result of the baseline model: 
+  * Training loss: 0.423
+  * Validation loss: 2.229
+  * Test loss: 2.416
+* Few Outputs from the model:
+  ![](Images/Exp_1_Result.png)
+  ![](Images/Exp_2_Result.png)
+* Some problems with default spacy tokenizer :
+    1. Opening bracket "(" in function is not tokenized as a separate token. Refer image below.
+    2. "\n" and indentation(4 spaces) are tokenized as a single token
+    3. Spacy default tokenization doesn't treat space(\s) as a separate token.
+
+![default tokenizer](Images/default_tokenizer.png)
 
