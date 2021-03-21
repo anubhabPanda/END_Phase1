@@ -39,6 +39,16 @@ The raw data had the following issues:
   * In some cases the indentation was absent
   * There wasn't any space separating two samples
 
+Few examples of raw data :
+
+**Example 1**
+
+<img src="Images/raw_data_1.png" width="300px" height='150' float='left'>
+
+**Example 2**
+
+<img src="Images/raw_data_2.png" width="800px" height='120' float='left'>
+
 The raw data was manually cleaned to fix this issue. The cleaned dataset can be found [here](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Dataset/english_python_data_corrected.txt)
 
 ### Data Preprocessing Steps
