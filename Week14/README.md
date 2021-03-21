@@ -30,10 +30,11 @@ The capstone project is to write a transformer-based model that can write python
     * any additional point you'd want to add
 
 ## Capstone Solution
+Our objective is to generate python source code given a natural language query in English Language.
 
-### About the Dataset
+## About the Dataset
 
-The dataset contains natural language and python code snippets pair manually annotated. The raw data contains around 4600 samples. The raw data can be downloaded from [here](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Dataset/english_python_data.txt).
+The dataset contains natural language queries and python code snippets pair manually annotated. The raw data contains around 4600 samples. The raw data can be downloaded from [here](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Dataset/english_python_data.txt).
 
 The raw data had the following issues:
   * In some cases the indentation was absent
@@ -43,21 +44,60 @@ Few examples of raw data :
 
 **Example 1**
 
-<img src="Images/raw_data_1.png" width="300px" height='150' float='left'>
+    # write a python program to add two numbers 
+    num1 = 1.5
+    num2 = 6.3
+    sum = num1 + num2
+    print(f'Sum: {sum}')
 
 **Example 2**
+
+    # write a python program to add two numbers 
+    num1 = 1.5
+    num2 = 6.3
+    sum = num1 + num2
+    print(f'Sum: {sum}')
 
 <img src="Images/raw_data_2.png" width="800px" height='120' float='left'>
 
 The raw data was manually cleaned to fix this issue. The cleaned dataset can be found [here](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Dataset/english_python_data_corrected.txt)
 
-### Data Preprocessing Steps
+## Data Preprocessing Steps
 This step will convert the training examples in text file into a dataframe containing the natural language and source code in two columns. Steps taken :
   * The text file is read line by line and each line is stored in a list.
   * Iterating through the list we store the text between \n followed by #. 
   * The above steps will fail if comments are present in the text. Hence we take care of the comments by either removing them using regex or taking care in the data cleaning step.
   * Comments that are not preceded by a \n is retained
+  * After converting to a dataframe, the natural language prompt are preceded by # and numbers. We remove # and numbers preceding the natural language queries. Space from the start and end of the text is also stripped.
+  * We also remove data points where the length of the target source code text is greater than 250. We do this due to limited computational capacity. Also 80% of source code text is within 250 characters in length.
+  * Number of data samples after cleaning and preprocessing = 3535
 
 Data preprocessing is shown in the image below :
 
 ![Data Preprocessing](Images/data_preprocessing.png)
+
+The final dataframe that will be used for modeling is shown below :
+
+![Processed Data](Images/data_dataframe.png)
+
+## Modeling Steps
+
+We will tackle this problem step by step with incremental improvements in each step.
+
+**Train-Validation-Test split used : 80-15-5** 
+
+### Baseline
+In the first experiment we will setup a baseline. In the subsequent steps we will to this baseline model to improve the performance. For baseline we will be using the following:
+
+* Tokenization : We will use default spacy english language model.
+* Hyperparameters: 
+  * Batch Size: 64
+  * Encoder Layers: 3
+  * Decoder Layer: 3
+  * Hidden Dim: 256
+  * Encoder PF Dimension: 512
+  * Decoder PF Dimension: 512
+  * Loss Function : Cross Entropy
+  * Optimizer : Adam
+  * Learning Rate: 0.0001
+
