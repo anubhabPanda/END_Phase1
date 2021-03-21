@@ -30,3 +30,7 @@ The capstone project is to write a transformer-based model that can write python
     * any additional point you'd want to add
 
 ## Capstone Solution
+
+### About the Dataset
+
+The dataset contains natural language and python code snippets pair manually annotated. The raw data contains around 4600 samples. The raw data can be downloaded from [here]()
