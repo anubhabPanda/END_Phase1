@@ -84,7 +84,11 @@ We will tackle this problem step by step with incremental improvements in each s
 
 **Train-Validation-Test split used : 80-15-5** 
 
-### Baseline
+### **Baseline**
+The code for this section can be found [**here**](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Baseline_Model.ipynb)
+
+Alternate link for the above notebook can be found [**here**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Baseline_Model.ipynb)
+
 In the first experiment we will setup a baseline. In the subsequent steps we will to this baseline model to improve the performance. For baseline we will be using the following:
 
 * Tokenization : We will use default spacy english language model.
