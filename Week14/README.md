@@ -58,8 +58,6 @@ Few examples of raw data :
     sum = num1 + num2
     print(f'Sum: {sum}')
 
-<img src="Images/raw_data_2.png" width="800px" height='120' float='left'>
-
 The raw data was manually cleaned to fix this issue. The cleaned dataset can be found [here](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Dataset/english_python_data_corrected.txt)
 
 ## Data Preprocessing Steps
