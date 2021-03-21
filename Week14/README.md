@@ -33,4 +33,21 @@ The capstone project is to write a transformer-based model that can write python
 
 ### About the Dataset
 
-The dataset contains natural language and python code snippets pair manually annotated. The raw data contains around 4600 samples. The raw data can be downloaded from [here]()
+The dataset contains natural language and python code snippets pair manually annotated. The raw data contains around 4600 samples. The raw data can be downloaded from [here](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Dataset/english_python_data.txt).
+
+The raw data had the following issues:
+  * In some cases the indentation was absent
+  * There wasn't any space separating two samples
+
+The raw data was manually cleaned to fix this issue. The cleaned dataset can be found [here](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Dataset/english_python_data_corrected.txt)
+
+### Data Preprocessing Steps
+This step will convert the training examples in text file into a dataframe containing the natural language and source code in two columns. Steps taken :
+  * The text file is read line by line and each line is stored in a list.
+  * Iterating through the list we store the text between \n followed by #. 
+  * The above steps will fail if comments are present in the text. Hence we take care of the comments by either removing them using regex or taking care in the data cleaning step.
+  * Comments that are not preceded by a \n is retained
+
+Data preprocessing is shown in the image below :
+
+![Data Preprocessing](Images/data_preprocessing.png)
