@@ -102,13 +102,12 @@ In the first experiment we will setup a baseline. In the subsequent steps we wil
   * Loss Function : Cross Entropy
   * Optimizer : Adam
   * Learning Rate: 0.0001
-* Total Number of Parameters : 7 million
+* Total Number of Parameters : 7.7 million
 * Result of the baseline model: 
   * Training loss: 0.423
   * Validation loss: 2.229
   * Test loss: 2.416
 * Few Outputs from the model:
-  ![](Images/Exp_1_Result.png)
   ![](Images/Exp_2_Result.png)
 * Some problems with default spacy tokenizer :
     1. Opening bracket "(" in function is not tokenized as a separate token. Refer image below.
@@ -116,4 +115,43 @@ In the first experiment we will setup a baseline. In the subsequent steps we wil
     3. Spacy default tokenization doesn't treat space(\s) as a separate token.
 
 ![default tokenizer](Images/default_tokenizer.png)
+
+
+### **Experiment1**
+The code for this section can be found [**here**](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment1.ipynb)
+
+Alternate link for the above notebook can be found [**here**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment1.ipynb)
+
+In the first experiment we will improve upon the baseline model. In this experiment we will use a custom tokenizer using spacy to take care of the tokenization problems mentioned in the earlier section. We will also increase the capacity of the model by increasing the number of parameters especially the decoder part. The features of this experiment and its result are shown below:
+
+* Tokenization : We will use custom spacy tokenizer. The code and few examples from the custom tokenizer can be found below.
+![custom tokenizer](Images/custom_tokenizer.png)
+![token result](Images/custom_tokenizer_example.png)
+![token result](Images/custom_tokenizer_example2.png)
+* Hyperparameters: 
+  * Batch Size: 64
+  * Encoder Layers: 3
+  * Decoder Layer: 6
+  * Hidden Dim: 512
+  * Encoder PF Dimension: 1024
+  * Decoder PF Dimension: 1024
+  * Loss Function : Cross Entropy
+  * Optimizer : AdamW
+  * Learning Rate: 0.0001
+* Total Number of Parameters : 31 million
+* Result of the model: 
+  * Training loss: 0.398
+  * Validation loss: 1.344
+  * Test loss: 1.439
+![Losses](Images/Exp_1_losses.png)
+* Few Outputs from the model:
+  ![exp result](Images/Exp_1_Result.png)
+* Some shortcomings of the model and next steps:
+    1. The model seems to be overfitting.
+    2. Also we can try a lr scheduler to speed up the training.
+    3. We can try out other loss functions to take care of overfitting.
+    4. We can try to train the embedding layer separately to make the model converge faster.
+    5. Still some room for improvement is there for the tokenizer.
+
+
 
