@@ -143,7 +143,7 @@ In the first experiment we will improve upon the baseline model. In this experim
   * Training loss: 0.398
   * Validation loss: 1.344
   * Test loss: 1.439
-![Losses](Images/Exp_1_losses.png)
+  ![Losses](Images/Exp_1_losses.png)
 * Few Outputs from the model:
   ![exp result](Images/Exp_1_Result.png)
 * Some shortcomings of the model and next steps:
@@ -162,9 +162,11 @@ Alternate link for the above notebook can be found [**here**](https://nbviewer.j
 In this experiment we will improve upon the previous model. In this experiment we will use a custom tokenizer using pygments library. We will try one cycle policy to train our model faster in each epoch. We will also try to reduce overfitting by increasing dropout a bit. The features of this experiment and its result are shown below:
 
 * Tokenization : We will use custom tokenizer using pygments library. The code and few examples from the custom tokenizer can be found below.
-![custom tokenizer](Images/pygments_tokenizer.png)
-![token result](Images/pygments_tokenizer_example1.png)
-![token result](Images/pygments_tokenizer_example2.png)
+  
+  ![custom tokenizer](Images/pygments_tokenizer.png)
+  ![token result](Images/pygments_tokenizer_example1.png)
+  ![token result](Images/pygments_tokenizer_example2.png)
+
 * Hyperparameters: 
   * Batch Size: 64
   * Encoder Layers: 4
@@ -181,7 +183,8 @@ In this experiment we will improve upon the previous model. In this experiment w
   * Training loss: 0.618
   * Validation loss: 1.258
   * Test loss: 1.381
-![Losses](Images/Exp_2_losses.png)
+  
+  ![Losses](Images/Exp_2_losses.png)
 * Few Outputs from the model:
   ![exp result](Images/Exp_2_Result.png)
 * Some observations from the model and next steps:
