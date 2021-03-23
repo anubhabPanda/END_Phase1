@@ -152,6 +152,40 @@ In the first experiment we will improve upon the baseline model. In this experim
     3. We can try out other loss functions to take care of overfitting.
     4. We can try to train the embedding layer separately to make the model converge faster.
     5. Still some room for improvement is there for the tokenizer.
+    6. Add more data
 
+### **Experiment1**
+The code for this section can be found [**here**](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb)
 
+Alternate link for the above notebook can be found [**here**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb)
 
+In this experiment we will improve upon the previous model. In this experiment we will use a custom tokenizer using pygments library. We will try one cycle policy to train our model faster in each epoch. We will also try to reduce overfitting by increasing dropout a bit. The features of this experiment and its result are shown below:
+
+* Tokenization : We will use custom tokenizer using pygments library. The code and few examples from the custom tokenizer can be found below.
+![custom tokenizer](Images/pygments_tokenizer.png)
+![token result](Images/pygments_tokenizer_example1.png)
+![token result](Images/pygments_tokenizer_example2.png)
+* Hyperparameters: 
+  * Batch Size: 64
+  * Encoder Layers: 4
+  * Decoder Layer: 4
+  * Hidden Dim: 512
+  * Encoder PF Dimension: 1024
+  * Decoder PF Dimension: 1024
+  * Loss Function : Cross Entropy
+  * Optimizer : AdamW
+  * Learning Rate: 0.0001
+  * Dropout: 0.2
+* Total Number of Parameters : 25 million
+* Result of the model: 
+  * Training loss: 0.618
+  * Validation loss: 1.258
+  * Test loss: 1.381
+![Losses](Images/Exp_2_losses.png)
+* Few Outputs from the model:
+  ![exp result](Images/Exp_2_Result.png)
+* Some observations from the model and next steps:
+    1. We have reduced overfitting significantly
+    2. One Cycle Learning rate seems to be giving stable results
+    3. We can try different loss functions and metrics in further experiments
+   
