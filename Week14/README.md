@@ -192,3 +192,6 @@ In this experiment we will improve upon the previous model. In this experiment w
     1. We have reduced overfitting significantly
     2. One Cycle Learning rate seems to be giving stable results
     3. We can try different loss functions and metrics in further experiments
+
+### **Final Results**
+25 outputs from the model can be found in [**this**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb) notebook
