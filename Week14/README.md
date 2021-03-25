@@ -154,7 +154,7 @@ In the first experiment we will improve upon the baseline model. In this experim
     5. Still some room for improvement is there for the tokenizer.
     6. Add more data
 
-### **Experiment1**
+### **Experiment2**
 The code for this section can be found [**here**](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb)
 
 Alternate link for the above notebook can be found [**here**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb)
@@ -175,14 +175,15 @@ In this experiment we will improve upon the previous model. In this experiment w
   * Encoder PF Dimension: 1024
   * Decoder PF Dimension: 1024
   * Loss Function : Cross Entropy
-  * Optimizer : AdamW
-  * Learning Rate: 0.0001
+  * Optimizer : Adam
+  * Learning Rate: 0.00001 to 0.0001 (max lr at 30 epochs)
+  * Epochs: 100
   * Dropout: 0.2
-* Total Number of Parameters : 25 million
+* Total Number of Parameters : 25.6 million
 * Result of the model: 
-  * Training loss: 0.618
-  * Validation loss: 1.258
-  * Test loss: 1.381
+  * Training loss: 0.515
+  * Validation loss: 1.248
+  * Test loss: 1.359
   
   ![Losses](Images/Exp_2_losses.png)
 * Few Outputs from the model:
@@ -191,4 +192,3 @@ In this experiment we will improve upon the previous model. In this experiment w
     1. We have reduced overfitting significantly
     2. One Cycle Learning rate seems to be giving stable results
     3. We can try different loss functions and metrics in further experiments
-   
