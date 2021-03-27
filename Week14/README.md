@@ -193,5 +193,57 @@ In this experiment we will improve upon the previous model. In this experiment w
     2. One Cycle Learning rate seems to be giving stable results
     3. We can try different loss functions and metrics in further experiments
 
-### **Final Results**
-25 outputs from the model can be found in [**this**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb) notebook
+### **Experiment3**
+The code for this section can be found [**here**](https://github.com/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment3.ipynb)
+
+Alternate link for the above notebook can be found [**here**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment3.ipynb)
+
+In this experiment we will try custom loss function and add more data. In this experiment we will use same tokenizer as previous experiment. We will try one cycle policy to train our model faster in each epoch. The features of this experiment and its result are shown below:
+
+* Tokenization : We will use custom tokenizer using pygments library as in the previous experiment.
+  
+  ![custom tokenizer](Images/pygments_tokenizer.png)
+  ![token result](Images/pygments_tokenizer_example1.png)
+  ![token result](Images/pygments_tokenizer_example2.png)
+* More Data: Added Data from CoNaLa dataset (code natural language)
+* Hyperparameters: 
+  * Batch Size: 64
+  * Encoder Layers: 3
+  * Decoder Layer: 3
+  * Hidden Dim: 512
+  * Encoder PF Dimension: 1024
+  * Decoder PF Dimension: 1024
+  * Loss Function : Label Smoothing Cross Entropy
+    ![Label Smoothing Loss function](Images/Label_Smoothing_Loss.png)
+  * Optimizer : Adam
+  * Learning Rate: 0.00001 to 0.0001 (max lr at 30 epochs)
+  * Epochs: 100
+  * Dropout: 0.2
+* Total Number of Parameters : 22.9 million
+* Result of the model: 
+  * Training loss: 1.538
+  * Validation loss: 2.216
+  * Test loss: 2.238
+  
+  ![Losses](Images/Exp_3_losses.png)
+
+* Some observations from the model and next steps:
+    1. Label Smoothing loss function doesn't reduce the loss any further than in experiment 2
+    2. Even adding more data from CoNaLa corpus doesn't improve the loss although the comparison is not apple to apple as the number of samples in train, validation and test set have increased.
+
+### **Conclusion and Final Results**
+
+* From the baseline and 3 experiments, it becomes clear that Experiment 2 notebook gave the best results.
+* Label Smoothing Cross Entropy Loss function although reduces overfitting , still the loss is high as compared to Cross Entropy
+* I didn't train the embeddings layer separately as I didn't think it would help in improving performance. It will only reduce the training time and help the model converge faster as the initial epochs of the model are used to learn the Embeddings layer. I have used Pytorch embedding and it is trained in the task itself.
+* Adding more data from the CoNaLa corpus didn't imrpove  the result. This may have happened since the both datasets are a bit different. CoNaLa dataset contains only single line python code whereas our dataset contains multiple lines as well.
+* Custom Tokenizer and One Cycle LR helped to improve the loss a lot as seen in Experiment 1 and Experiment 2.
+* Please refer to [**this**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb) notebook for the final results using all the learnings from the 4 experiments
+  
+25 outputs from the model can be found in [**same**](https://nbviewer.jupyter.org/github/anubhabPanda/END_Phase1/blob/main/Week14/Notebooks/Experiment2.ipynb) notebook
+
+### Further Improvements
+
+* Try Beam Search for decoding during validation, test and inference
+* Try other Transformer Architectures like T5
+* Add more data by making multiple dataset similar to our objective
